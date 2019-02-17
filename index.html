@@ -64,7 +64,7 @@ You can also use your own favico or Hackathon logo/header.
             <!--<td class="cat">{{column}}</td>-->
             <td class="number"><!--E{{expo}}--> {{table}}</td>
             <td class="name"><a href="{{{link}}}" target="_blank">{{project}}</a></td>
-            <td class="prize">{{sponsors}}</td>
+            <td class="prize">{{prizes}}</td>
 
           </tr>
         {{/data}}
@@ -108,10 +108,13 @@ You can also use your own favico or Hackathon logo/header.
           // print raw data
           //console.log(tableData);
           // add commas to sponsor prize data
-          // for (var x in tableData.data) {
-          //   var s = tableData.data[x]['sponsors'];
-          //   tableData.data[x]['sponsors'] = s.replace(/,/ig, ", ");
-          // }
+          for (var x in tableData.data) {
+            var s = tableData.data[x]['prizes'];
+            console.log(s);
+            if (s) {
+              tableData.data[x]['prizes'] = s.replace(/,/ig, ", ");
+            }
+          }
           // print cleaned data
           console.log(tableData);
 
